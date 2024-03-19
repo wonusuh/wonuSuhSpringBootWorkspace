@@ -1,0 +1,14 @@
+
+]
+java:S1220""Move this file to a named package.8Ã‘¶¯å1J$17cb2542-816d-4590-8c3e-a9255a71fdc5
+ƒ	java:S125"<This block of commented-out lines of code should be removed.(“»Œüÿÿÿÿ8Ó‘¶¯å1J$51f3fb93-34d3-451e-9e1e-e5fd5bae15ba
+ƒ	java:S125("<This block of commented-out lines of code should be removed.(ÔÈ›°üÿÿÿÿ8Õ‘¶¯å1J$3ec4692a-b6d3-4ae7-bbaa-5fc7179a281a
+q
+java:S1481*")Remove this unused "stu2" local variable.(ŽÿÑ¡ýÿÿÿÿ8Ø‘¶¯å1J$08823dc9-daaf-4aa3-9ee1-873c53d5e156
+r	java:S106/"+Replace this use of System.out by a logger.(ŸÓÓ¦þÿÿÿÿ8Ù‘¶¯å1J$fa70fc80-0c1a-4336-92bc-5945156daa74
+o
+java:S1128",Remove this unused import 'entity.Customer'.(éþ²¢8Û‘¶¯å1J$fb6d1919-79be-4dda-912e-fd5d3bd3ed7b
+~
+java:S1128"6Remove this unused import 'javassist.LoaderClassPath'.(êö³úûÿÿÿÿ8Û‘¶¯å1J$992e9857-94fb-4a9f-8d5c-4919bd294cba
+s
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8Ü‘¶¯å1J$97c3f00d-16c2-4eb3-ad06-46cdc1d3efc1
