@@ -3,6 +3,7 @@ package kr.study.jpa1.controller;
 import kr.study.jpa1.domain.Member;
 import kr.study.jpa1.form.MemberForm;
 import kr.study.jpa1.service.MemberService;
+import kr.study.jpa1.service.StudyRecordService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,7 @@ import java.util.List;
 public class MemberController {
 
     private final MemberService memberService;
+    private final StudyRecordService studyService;
 
     @GetMapping
     public String joinForm() {
@@ -64,7 +66,10 @@ public class MemberController {
 
     @DeleteMapping("/{keyId}")
     public @ResponseBody String deleteMemberAjax(@PathVariable Long keyId) {
-
+        log.trace("keyid={}", keyId);
+        Member delMember = memberService.findById(keyId);
+        studyService.deleteAllRecordsByMember(delMember);
+        memberService.deleteMember(keyId);
         return "ok";
     }
 }
