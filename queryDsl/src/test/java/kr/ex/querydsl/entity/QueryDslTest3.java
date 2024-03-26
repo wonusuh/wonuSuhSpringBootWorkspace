@@ -1,7 +1,8 @@
-package kr.ex.querydsl.domain;
+package kr.ex.querydsl.entity;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
+import kr.ex.querydsl.dto.MemberDTO;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,8 +44,11 @@ class QueryDslTest3 {
     @Test
     void dtoByJQPL() {
         List<MemberDTO> result = em.createQuery(
-                        "select new kr.ex.querydsl.domain.MemberDTO(m.username, m.age) " +
+                        "select new kr.ex.querydsl.entity.MemberDTO(m.username, m.age) " +
                                 "from Member m", MemberDTO.class)
                 .getResultList();
     }
+
+
+
 }

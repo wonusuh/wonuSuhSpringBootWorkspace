@@ -1,4 +1,4 @@
-package kr.ex.querydsl.domain;
+package kr.ex.querydsl.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

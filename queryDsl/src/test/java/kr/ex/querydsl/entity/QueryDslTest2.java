@@ -1,4 +1,4 @@
-package kr.ex.querydsl.domain;
+package kr.ex.querydsl.entity;
 
 import com.querydsl.core.Tuple;
 import com.querydsl.jpa.impl.JPAQueryFactory;
@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static kr.ex.querydsl.domain.QMember.member;
-import static kr.ex.querydsl.domain.QTeam.team;
+import static kr.ex.querydsl.entity.QMember.member;
+import static kr.ex.querydsl.entity.QTeam.team;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Transactional
