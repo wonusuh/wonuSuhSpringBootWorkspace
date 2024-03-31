@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>유저게시판</title>
+    <meta charset="utf-8">
+</head>
+<body>
+<h3>회원게시판</h3>
+<table class="table" border="1">
+    <tr>
+        <th>id</th>
+        <th>userId</th>
+        <th>boardTitle</th>
+        <th>boardContent</th>
+        <th>userName</th>
+        <th>boardRegDate</th>
+        <th>boardViewCount</th>
+    </tr>
+    <tr th:each="board : ${boardList}">
+        <td th:text="${board.id}"></td>
+        <td th:text="${board.userId}"></td>
+        <td th:text="${board.boardTitle}"></td>
+        <td th:text="${board.boardContent}"></td>
+        <td th:text="${board.userName}"></td>
+        <td th:text="${board.getBoardRegDate()}"></td>
+        <td th:text="${board.boardViewCount}"></td>
+    </tr>
+</table>
+<a href="/board/boardForm">글쓰기</a>
+<a href="/">홈으로</a>
+</body>
+</html>

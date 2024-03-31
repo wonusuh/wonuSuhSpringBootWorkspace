@@ -6,6 +6,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -15,5 +18,10 @@ public class UserService {
     @Transactional
     public void save(User u) {
         userRepository.save(u);
+    }
+
+    public List<User> getAllUser() {
+        List<User> userList = userRepository.findAll();
+        return userList;
     }
 }

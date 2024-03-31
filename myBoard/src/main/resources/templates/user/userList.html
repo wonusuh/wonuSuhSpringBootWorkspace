@@ -6,12 +6,19 @@
 </head>
 <body>
 <table border="1">
-<tr>
-    <th>id</th>
-    <th>user_id</th>
-    <th>user_pw</th>
-    <th>user_name</th>
-</tr>
+    <tr>
+        <th>id</th>
+        <th>user_id</th>
+        <th>user_pw</th>
+        <th>user_name</th>
+    </tr>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.getId()}">데이터베이스아이디</td>
+        <td th:text="${user.userId}">유저아이디</td>
+        <td th:text="${user.userPw}">유저비밀번호</td>
+        <td th:text="${user.userName}">유저이름</td>
+    </tr>
 </table>
+<a href="/">홈으로</a>
 </body>
 </html>
