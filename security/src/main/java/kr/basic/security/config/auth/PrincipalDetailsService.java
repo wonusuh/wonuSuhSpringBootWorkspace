@@ -21,7 +21,7 @@ public class PrincipalDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Users userEntity = userRepository.findByUsername(username);
-        if(userEntity!= null){
+        if (userEntity != null) {
             System.out.println(" 유저 디테일 객체 생성 !!! " + userEntity);
             return new PrincipalDetails(userEntity); // 이 함수가 종료가 될때 @Authentication 객체가 만들어진다
         }

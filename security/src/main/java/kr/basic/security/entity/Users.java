@@ -3,11 +3,14 @@ package kr.basic.security.entity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.context.annotation.Profile;
 
 import java.sql.Timestamp;
+
 @Entity
 @Data
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,8 +20,7 @@ public class Users {
     private String email;
     @Enumerated(EnumType.STRING)
     private RoleUser role;
-    @CreationTimestamp
-    private Timestamp createDate;
+    // private Timestamp createDate;
 
     @Builder
     public Users(String username, String password, String email, String provider, String providerId) {
@@ -27,7 +29,7 @@ public class Users {
         this.email = email;
         this.provider = provider;
         this.providerId = providerId;
-        this.role=RoleUser.ROLE_USER;
+        this.role = RoleUser.ROLE_USER;
     }
 
     //OAuth 를 위해 추가하는 필드

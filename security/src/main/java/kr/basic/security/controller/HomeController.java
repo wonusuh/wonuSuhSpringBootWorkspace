@@ -23,10 +23,12 @@ import java.util.Random;
 public class HomeController {
     private final UserRepository userRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
-    @GetMapping({"","/"})
-    public String home(){
+
+    @GetMapping({"", "/"})
+    public String home() {
         return "index";
     }
+
     @GetMapping({"/loginForm"})
     public String login() {
         return "loginForm";
@@ -38,15 +40,15 @@ public class HomeController {
     }
 
     @PostMapping("/join")
-    public String join(Users user){
-        log.trace("user={}" , user);
+    public String join(Users user) {
+        log.trace("user={}", user);
 
-        int num = new Random().nextInt(0,2);
-        if(num == 0){
+        int num = new Random().nextInt(0, 2);
+        if (num == 0) {
             user.setRole(RoleUser.ROLE_MANAGER);
-        }else if(num == 1){
+        } else if (num == 1) {
             user.setRole(RoleUser.ROLE_USER);
-        }else{
+        } else {
             user.setRole(RoleUser.ROLE_ADMIN);
         }
 
@@ -57,44 +59,48 @@ public class HomeController {
         log.trace("adduser={}", adduser);
         return "redirect:/loginForm";
     }
+
     @GetMapping("/test")
     @ResponseBody
-    public PrincipalDetails test(@AuthenticationPrincipal PrincipalDetails principalDetails){
-        if(principalDetails == null){
+    public PrincipalDetails test(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+        if (principalDetails == null) {
             return null;
         }
         return principalDetails;
     }
+
     @GetMapping("/admin")
     @ResponseBody
-    public String admin(){
+    public String admin() {
         return "admin";
     }
+
     @GetMapping("/manager")
     @ResponseBody
-    public String manager(){
+    public String manager() {
         return "manager";
     }
+
     @GetMapping("/user")
     @ResponseBody
-    public String user(){
+    public String user() {
         return "user";
     }
 
     @GetMapping("/auth/login")
-    public @ResponseBody String login(String error, String exception){
+    public @ResponseBody String login(String error, String exception) {
         log.error("error ={} , excepiton={}", error, exception);
         return exception.toString();
     }
 
     @GetMapping("/test/oauth")
-    public @ResponseBody  OAuth2User testLogin(Authentication authentication,
-                                          @AuthenticationPrincipal OAuth2User oauth){
-        if(authentication == null){
+    public @ResponseBody OAuth2User testLogin(Authentication authentication,
+                                              @AuthenticationPrincipal OAuth2User oauth) {
+        if (authentication == null) {
             return null;
         }
-        OAuth2User oAuth2User2 = (OAuth2User)authentication.getPrincipal();
-        log.error("oauth = {}" ,oauth);
+        OAuth2User oAuth2User2 = (OAuth2User) authentication.getPrincipal();
+        log.error("oauth = {}", oauth);
         return oAuth2User2;
     }
 

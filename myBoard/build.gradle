@@ -35,7 +35,7 @@ dependencies {
     // spring-boot-devtools 라이브러리를 추가하면, html 파일을 컴파일만 해주면 서버 재시작 없이 View 파일 변경이 가능하다.
     implementation 'org.springframework.boot:spring-boot-devtools'
     // 스프링 시큐리티
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
 }
 
 tasks.named('test') {

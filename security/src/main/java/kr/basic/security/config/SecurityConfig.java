@@ -18,34 +18,35 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 public class SecurityConfig {
 
     private final PrincipalOauth2UserService principalOauth2UserService;
+
     @Bean
-    public WebSecurityCustomizer webSecurityCustomizer(){
-        return (web)->{
-            web.ignoring().requestMatchers(new String[]{"/favicon.ico","/resources/**","/error"});
+    public WebSecurityCustomizer webSecurityCustomizer() {
+        return (web) -> {
+            web.ignoring().requestMatchers(new String[]{"/favicon.ico", "/resources/**", "/error"});
         };
     }
 
     @Bean
-    AuthenticationFailureHandler customAuthFailureHandler(){
+    AuthenticationFailureHandler customAuthFailureHandler() {
         return new CustomAuthFailureHandler();
     }
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable);
         http.authorizeHttpRequests(
                 authz -> authz
                         .requestMatchers("/user/**").authenticated() // 인증이 되면 누구나 들어올수있음
-                        .requestMatchers("/manager/**").hasAnyRole("MANAGER","ADMIN") // role이 메니저나 어드민만 들어올수있음
+                        .requestMatchers("/manager/**").hasAnyRole("MANAGER", "ADMIN") // role이 메니저나 어드민만 들어올수있음
                         .requestMatchers("/admin/**").hasAnyRole("ADMIN")
                         .anyRequest().permitAll()
 
         ).formLogin(
-                form->{
+                form -> {
                     form.loginPage("/loginForm")   // 우리가 만든 로그인페이지로 자동 인터셉트됨
-                        .loginProcessingUrl("/login")
+                            .loginProcessingUrl("/login")
                             .failureHandler(customAuthFailureHandler())
-                            .defaultSuccessUrl("/",true);  // 로그인 성공하면 돌아올 페이지
+                            .defaultSuccessUrl("/", true);  // 로그인 성공하면 돌아올 페이지
 
                 }
         ).oauth2Login(Customizer.withDefaults());

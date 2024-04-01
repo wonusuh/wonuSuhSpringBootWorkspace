@@ -16,17 +16,18 @@ import java.util.Map;
 // authentication 객체 --> user 정보를 넣어야함 => userDetails
 
 @Data
-public class PrincipalDetails implements UserDetails , OAuth2User{
+public class PrincipalDetails implements UserDetails, OAuth2User {
 
     private Users user;
     private Map<String, Object> attributes;
 
     // 일반 로그인 객체
-    public PrincipalDetails(Users user){
+    public PrincipalDetails(Users user) {
         this.user = user;
     }
-// OAuth2.0 로그인시 사용
-    public PrincipalDetails(Users user, Map<String, Object> attributes){
+
+    // OAuth2.0 로그인시 사용
+    public PrincipalDetails(Users user, Map<String, Object> attributes) {
         this.attributes = attributes; // 구글 로그인할때 프로필 정보 이메일이 넘겨옴
         this.user = user;
     }
@@ -60,12 +61,14 @@ public class PrincipalDetails implements UserDetails , OAuth2User{
     public boolean isAccountNonExpired() {
         return true;
     }
-  // 계정이 잠가지지 않았나?
+
+    // 계정이 잠가지지 않았나?
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
-  // user 비번이 기간이 지났나?
+
+    // user 비번이 기간이 지났나?
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
