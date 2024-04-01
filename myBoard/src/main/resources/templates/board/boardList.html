@@ -15,6 +15,7 @@
         <th>userName</th>
         <th>boardRegDate</th>
         <th>boardViewCount</th>
+        <th>삭제</th>
     </tr>
     <tr th:each="board : ${boardList}">
         <td th:text="${board.id}"></td>
@@ -24,6 +25,7 @@
         <td th:text="${board.userName}"></td>
         <td th:text="${board.getBoardRegDate()}"></td>
         <td th:text="${board.boardViewCount}"></td>
+        <td><a th:href="@{/board/delete(id=${board.id})}">삭제</a></td>
     </tr>
 </table>
 <a href="/board/boardForm">글쓰기</a>
