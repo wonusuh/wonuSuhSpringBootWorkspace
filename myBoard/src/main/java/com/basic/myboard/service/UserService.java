@@ -1,6 +1,7 @@
 package com.basic.myboard.service;
 
 import com.basic.myboard.entity.User;
+import com.basic.myboard.entity.UserRole;
 import com.basic.myboard.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,6 +18,7 @@ public class UserService {
 
     @Transactional
     public void save(User u) {
+        u.setRole(UserRole.ROLE_USER);
         userRepository.save(u);
     }
 
