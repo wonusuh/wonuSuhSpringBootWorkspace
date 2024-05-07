@@ -7,13 +7,13 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @SpringBootApplication
 public class SecurityApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(SecurityApplication.class, args);
+    }
+
     @Bean
     public BCryptPasswordEncoder encodePwd() {
         return new BCryptPasswordEncoder();
-    }
-
-    public static void main(String[] args) {
-        SpringApplication.run(SecurityApplication.class, args);
     }
 
 }

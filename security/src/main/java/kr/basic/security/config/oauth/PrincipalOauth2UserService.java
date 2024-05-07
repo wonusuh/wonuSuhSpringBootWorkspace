@@ -4,11 +4,9 @@ import kr.basic.security.config.auth.PrincipalDetails;
 import kr.basic.security.config.oauth.provider.GoogleUserInfo;
 import kr.basic.security.config.oauth.provider.NaverUserInfo;
 import kr.basic.security.config.oauth.provider.OAuth2UserInfo;
-import kr.basic.security.entity.RoleUser;
 import kr.basic.security.entity.Users;
 import kr.basic.security.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.client.userinfo.DefaultOAuth2UserService;
 import org.springframework.security.oauth2.client.userinfo.OAuth2UserRequest;
@@ -16,8 +14,8 @@ import org.springframework.security.oauth2.core.OAuth2AuthenticationException;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
 import java.util.Map;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

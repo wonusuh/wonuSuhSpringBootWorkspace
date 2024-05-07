@@ -1,11 +1,10 @@
 package kr.basic.security.entity;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.context.annotation.Profile;
-
-import java.sql.Timestamp;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
@@ -21,7 +20,9 @@ public class Users {
     @Enumerated(EnumType.STRING)
     private RoleUser role;
     // private Timestamp createDate;
-
+    //OAuth 를 위해 추가하는 필드
+    private String provider;
+    private String providerId;
     @Builder
     public Users(String username, String password, String email, String provider, String providerId) {
         this.username = username;
@@ -31,9 +32,5 @@ public class Users {
         this.providerId = providerId;
         this.role = RoleUser.ROLE_USER;
     }
-
-    //OAuth 를 위해 추가하는 필드
-    private String provider;
-    private String providerId;
 
 }
